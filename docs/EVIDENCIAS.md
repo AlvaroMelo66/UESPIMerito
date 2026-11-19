@@ -27,10 +27,10 @@
 - [x] Dashboard com saldos reais: administrador `999.999 UESPM`, aluno `11 UESPM` e supply `1.000.010 UESPM`.
 - [ ] `[EVIDÊNCIA PENDENTE - PRINT TRANSFER]` Captura visual da transferência confirmada e hash (a evidência on-chain já foi obtida).
 - [ ] `[EVIDÊNCIA PENDENTE - VÍDEO]` Link/arquivo da gravação de até cinco minutos.
-- [ ] `[EVIDÊNCIA PENDENTE - GITHUB]` URL do repositório entregue.
+- [x] GitHub público: `https://github.com/AlvaroMelo66/UESPIMerito`.
 
 ## Procedimento para completar
 
 1. Registrar capturas sem expor saldo sensível, chave ou frase-semente.
 2. Regenerar o relatório com a evidência on-chain da transferência.
-3. Publicar o repositório e gravar o vídeo usando `docs/ROTEIRO_VIDEO.md`.
+3. Gravar o vídeo usando `docs/ROTEIRO_VIDEO.md`.

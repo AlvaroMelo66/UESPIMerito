@@ -46,7 +46,7 @@ Fonte: leitura integral das cinco páginas de `3a_prova.pdf`. A coluna de estado
 | R40 | Ferramentas permitidas | Hardhat, React, MetaMask; Solidity/OpenZeppelin/ethers/Vite complementares | Manifestos | Concluído |
 | R41 | Entrega: código-fonte | Projeto completo no workspace | Arquivos do repositório | Concluído |
 | R42 | Entrega: PDF | Relatório em `output/pdf` | Renderização e inspeção | Concluído |
-| R43 | Entrega: link GitHub | Repositório ainda não publicado | URL a fornecer | Pendente manual |
+| R43 | Entrega: link GitHub | `https://github.com/AlvaroMelo66/UESPIMerito` | Repositório público | Concluído |
 | R44 | Entrega: link explorer | Contrato e transação disponíveis no Etherscan Sepolia | URLs no README | Concluído |
 | R45 | Entrega: vídeo curto | Depende de gravação pelo aluno | Arquivo/link a fornecer | Pendente manual |
 

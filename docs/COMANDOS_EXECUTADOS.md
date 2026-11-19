@@ -41,3 +41,6 @@ Essas ações exigem decisão/credenciais do usuário ou representam publicaçã
 | Pause assinado pelo usuário via frontend/MetaMask | Bloco 12.170.873; gas 129.092; custo 0,000193638001807288 SepoliaETH |
 | Tentativa de transferência durante pausa | Recusada antes do envio; nenhum token movimentado |
 | Unpause assinado pelo usuário via frontend/MetaMask | Bloco 12.170.882; gas 24.937; custo 0,000037405500349118 SepoliaETH |
+| `git init -b main` | Repositório local inicializado na branch `main` |
+| `git commit` | Commit inicial `8a706b3` com 34 arquivos revisados; `.env` ignorados |
+| `git push -u origin main` | Branch publicada em `https://github.com/AlvaroMelo66/UESPIMerito` |

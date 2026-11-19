@@ -2,7 +2,7 @@
 
 Token ERC-20 de recompensas acadêmicas para reconhecer participação em pesquisa, extensão, monitoria, eventos e desempenho na UESPI. O projeto combina um contrato Solidity com controles por papéis, uma interface React para MetaMask e documentação de implantação na Ethereum Sepolia.
 
-> Estado: contrato publicado e verificado na Ethereum Sepolia, com implementação, testes, cobertura, build do frontend e transferência de demonstração concluídos. Capturas finais, GitHub e vídeo permanecem pendentes.
+> Estado: contrato publicado e verificado na Ethereum Sepolia, com implementação, testes, cobertura, build do frontend, transferência de demonstração, evidências de saldo e publicação no GitHub concluídos. A captura do recibo e o vídeo permanecem pendentes.
 
 ## Recursos
 
@@ -169,6 +169,10 @@ Para produção, recomenda-se transferir o papel de administrador a uma multisig
 - [Comandos executados](docs/COMANDOS_EXECUTADOS.md)
 - [Fonte editável do relatório](docs/relatorio-tecnico.html)
 - [Relatório técnico em PDF](output/pdf/Relatorio-Tecnico-UESPIMerito.pdf)
+
+## Repositório público
+
+- [github.com/AlvaroMelo66/UESPIMerito](https://github.com/AlvaroMelo66/UESPIMerito)
 
 ## Licença
 
