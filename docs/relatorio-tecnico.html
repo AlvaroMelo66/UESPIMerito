@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Relatório Técnico - UESPIMérito</title>
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #dfe8e2; color: #13271e; font-family: "Segoe UI", Arial, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; height: 297mm; margin: 0 auto; padding: 17mm 17mm 14mm; background: #f7faf8; position: relative; overflow: hidden; page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+.page::after { content: attr(data-page); position: absolute; bottom: 8mm; right: 17mm; color: #698176; font-size: 9pt; }
+.topline { display: flex; justify-content: space-between; align-items: center; padding-bottom: 5mm; border-bottom: 1px solid #cbdad2; color: #587064; font-size: 8.5pt; text-transform: uppercase; letter-spacing: .08em; }
+.mark { display: inline-grid; place-items: center; width: 10mm; height: 10mm; border-radius: 3mm; background: #1fd18a; color: #073524; font-weight: 800; letter-spacing: -.06em; }
+h1, h2, h3 { font-family: "Segoe UI", Arial, sans-serif; margin: 0; color: #0a2117; }
+h1 { font-size: 34pt; line-height: 1.02; letter-spacing: -.055em; }
+h2 { font-size: 24pt; letter-spacing: -.04em; margin: 7mm 0 4mm; }
+h3 { font-size: 13pt; margin: 5mm 0 2mm; }
+p, li, td, th { font-size: 10pt; line-height: 1.48; }
+p { margin: 0 0 3mm; }
+ul { margin: 2mm 0 4mm; padding-left: 5mm; }
+li { margin: 1mm 0; }
+.muted { color: #5f766b; }
+.green { color: #087b50; }
+.eyebrow { color: #087b50; text-transform: uppercase; letter-spacing: .14em; font-weight: 700; font-size: 8.5pt; }
+.rule { width: 15mm; height: 1.5mm; background: #1fd18a; margin: 4mm 0; }
+.cover { background: radial-gradient(circle at 80% 20%, #174b37 0, #0b2b20 32%, #071a13 68%); color: #eff9f4; display: flex; flex-direction: column; }
+.cover h1 { color: #f4fff9; font-size: 48pt; max-width: 155mm; margin-top: 52mm; }
+.cover .accent { color: #39e5a0; }
+.cover .subtitle { max-width: 135mm; color: #b9d2c6; font-size: 15pt; line-height: 1.45; margin-top: 8mm; }
+.cover .meta { margin-top: auto; padding-top: 8mm; border-top: 1px solid #2a4b3e; display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; color: #a9c3b7; font-size: 9.5pt; }
+.cover::after { color: #7e9c8e; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+.card { padding: 4.5mm; border: 1px solid #cbdad2; border-radius: 4mm; background: #fff; }
+.card h3 { margin-top: 0; }
+.metric { padding: 4mm; border-left: 2mm solid #1fd18a; background: #eaf6f0; }
+.metric strong { display: block; font-size: 19pt; letter-spacing: -.04em; color: #0b5f40; }
+.diagram { display: grid; grid-template-columns: 1fr 9mm 1fr 9mm 1fr; align-items: center; gap: 2mm; margin: 8mm 0; }
+.node { min-height: 28mm; display: grid; place-items: center; text-align: center; padding: 4mm; border: 1px solid #acc6b9; border-radius: 4mm; background: white; font-weight: 700; }
+.connector { height: 1mm; background: #1fd18a; }
+code, pre { font-family: Consolas, monospace; }
+pre { margin: 3mm 0; padding: 4mm; border-radius: 3mm; background: #0b2118; color: #d9f5e7; font-size: 8pt; line-height: 1.45; white-space: pre-wrap; }
+table { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm; }
+th { background: #143b2c; color: white; text-align: left; }
+th, td { padding: 2.2mm 2.5mm; border: 1px solid #cad8d1; vertical-align: top; }
+tr:nth-child(even) td { background: #eef5f1; }
+.placeholder { margin: 3mm 0; padding: 3.5mm; border: 1px dashed #d39733; border-radius: 3mm; background: #fff8e9; color: #7a5011; font-size: 9pt; }
+.evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin: 3mm 0; }
+.evidence-grid figure { margin: 0; padding: 2mm; border: 1px solid #cbdad2; border-radius: 3mm; background: #fff; }
+.evidence-grid img { display: block; width: 100%; height: 39mm; object-fit: contain; object-position: top; background: #eef5f1; }
+.evidence-grid figcaption { margin-top: 1.5mm; color: #4d685c; font-size: 7.5pt; line-height: 1.3; }
+.ok { color: #087b50; font-weight: 700; }
+.footer-note { position: absolute; left: 17mm; bottom: 8mm; color: #698176; font-size: 8.5pt; }
+.small td, .small th { font-size: 8.5pt; padding: 1.7mm 2mm; }
+@media screen { .page { margin-bottom: 12px; box-shadow: 0 8px 30px rgba(0,0,0,.12); } }
+</style>
+</head>
+<body>
+
+<section class="page cover" data-page="1 / 8">
+  <div class="topline"><span class="mark">UM</span><span>Blockchain, Smart Contracts e Web3</span></div>
+  <div class="eyebrow" style="margin-top:25mm;color:#39e5a0">Relatório técnico</div>
+  <h1>UESPI<span class="accent">Mérito</span></h1>
+  <p class="subtitle">Token ERC-20 para recompensas acadêmicas, com emissão controlada, queima, pausa emergencial e integração Web3.</p>
+  <div class="meta">
+    <div><strong>Token</strong><br>UESPIMérito (UESPM)</div>
+    <div><strong>Rede-alvo</strong><br>Ethereum Sepolia</div>
+    <div><strong>Tecnologias</strong><br>Solidity · OpenZeppelin · Hardhat</div>
+    <div><strong>Interface</strong><br>React · Vite · ethers.js · MetaMask</div>
+  </div>
+  <div class="footer-note">Projeto acadêmico · 19 de novembro de 2026</div>
+</section>
+
+<section class="page" data-page="2 / 8">
+  <div class="topline"><span class="mark">UM</span><span>Introdução e tokenomics</span></div>
+  <h2>Propósito acadêmico</h2>
+  <p>O UESPIMérito foi concebido para reconhecer atividades que geram valor à comunidade universitária: pesquisa, extensão, monitoria, participação em eventos e desempenho. O token funciona como registro transferível de mérito em uma rede pública de testes. Não representa participação societária, promessa financeira ou investimento.</p>
+  <div class="grid2" style="margin-top:6mm">
+    <div class="metric"><span>Oferta inicial</span><strong>1.000.000</strong><span>UESPM</span></div>
+    <div class="metric"><span>Limite máximo</span><strong>1.250.000</strong><span>UESPM</span></div>
+  </div>
+  <h3>Distribuição proposta da oferta inicial</h3>
+  <table>
+    <tr><th>Finalidade</th><th>Percentual</th><th>Quantidade</th></tr>
+    <tr><td>Recompensas acadêmicas</td><td>60%</td><td>600.000 UESPM</td></tr>
+    <tr><td>Pesquisa e extensão</td><td>20%</td><td>200.000 UESPM</td></tr>
+    <tr><td>Eventos e formação</td><td>10%</td><td>100.000 UESPM</td></tr>
+    <tr><td>Reserva institucional</td><td>10%</td><td>100.000 UESPM</td></tr>
+  </table>
+  <h3>Política de emissão</h3>
+  <p>A oferta inicial é emitida ao administrador no construtor. Emissões posteriores exigem <code>MINTER_ROLE</code> e nunca podem elevar o supply acima do teto. O mapeamento público <code>academicRewardsMinted</code> registra quanto foi emitido diretamente como recompensa para cada beneficiário.</p>
+  <p>A queima é voluntária pelo titular. A pausa não altera saldos; apenas interrompe temporariamente transferências, mint e burn.</p>
+</section>
+
+<section class="page" data-page="3 / 8">
+  <div class="topline"><span class="mark">UM</span><span>Arquitetura</span></div>
+  <h2>Da carteira ao contrato</h2>
+  <div class="diagram">
+    <div class="node">MetaMask<br><span class="muted">conta e assinatura</span></div><div class="connector"></div>
+    <div class="node">React + ethers.js<br><span class="muted">interface Web3</span></div><div class="connector"></div>
+    <div class="node">Sepolia + UESPM<br><span class="muted">estado on-chain</span></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>Camada de contrato</h3><ul><li>ERC20: padrão e eventos.</li><li>ERC20Capped: teto imutável.</li><li>ERC20Burnable: queima pelo titular.</li><li>ERC20Pausable: resposta a incidentes.</li><li>AccessControl: separação de privilégios.</li></ul></div>
+    <div class="card"><h3>Camada de interface</h3><ul><li>Seleção/adição da Sepolia.</li><li>Saldo e supply em tempo real.</li><li>Transferência com validação.</li><li>Status pendente, sucesso e erro.</li><li>Mint e pause somente para autorizados.</li></ul></div>
+  </div>
+  <h3>Fluxo de uma transferência</h3>
+  <ol>
+    <li>O usuário conecta a MetaMask e confirma a Sepolia.</li>
+    <li>O frontend valida endereço e quantidade e chama <code>transfer</code>.</li>
+    <li>A MetaMask apresenta a transação para assinatura.</li>
+    <li>O hash é exibido enquanto o recibo é aguardado.</li>
+    <li>Após confirmação, saldo e supply são atualizados e o Etherscan fica disponível.</li>
+  </ol>
+  <p class="muted">O projeto não recebe nem armazena frase-semente ou chave privada. A custódia permanece na carteira.</p>
+</section>
+
+<section class="page" data-page="4 / 8">
+  <div class="topline"><span class="mark">UM</span><span>Smart contract e segurança</span></div>
+  <h2>Implementação original</h2>
+  <pre>constructor(address initialAdmin)
+mapping(address account =&gt; uint256 amount) public academicRewardsMinted;
+
+function mint(address beneficiary, uint256 amount)
+    public onlyRole(MINTER_ROLE)
+
+function pause() public onlyRole(PAUSER_ROLE)
+function unpause() public onlyRole(PAUSER_ROLE)</pre>
+  <p>O contrato expõe explicitamente <code>totalSupply</code>, <code>balanceOf</code> e <code>transfer</code>, delegando à implementação OpenZeppelin para preservar a compatibilidade ERC-20.</p>
+  <h3>Controles de segurança</h3>
+  <table>
+    <tr><th>Ameaça</th><th>Mitigação</th></tr>
+    <tr><td>Inflação não controlada</td><td>Cap de 1.250.000 UESPM aplicado em todo mint.</td></tr>
+    <tr><td>Uso indevido de funções críticas</td><td>Papéis separados para emissão, pausa e administração.</td></tr>
+    <tr><td>Entradas inválidas</td><td><code>require</code> para administrador, beneficiário e quantidade.</td></tr>
+    <tr><td>Incidente operacional</td><td>Pausa bloqueia transferências, mint e burn.</td></tr>
+    <tr><td>ABI divergente</td><td>Exportação automática a partir do artefato compilado.</td></tr>
+  </table>
+  <h3>Limitações</h3>
+  <p>Os papéis iniciais ficam concentrados no deployer para simplificar a avaliação. Em uso institucional, o administrador deve ser uma multisig e os papéis operacionais devem pertencer a contas diferentes. O projeto não substitui auditoria independente.</p>
+  <p class="muted">A auditoria npm retornou 0 vulnerabilidades no frontend. A toolchain de desenvolvimento registrou 25 avisos transitivos; a correção total exige mudanças major incompatíveis e deve ser tratada em migração controlada, sem <code>--force</code> nesta versão reproduzível.</p>
+</section>
+
+<section class="page" data-page="5 / 8">
+  <div class="topline"><span class="mark">UM</span><span>Interface Web3</span></div>
+  <h2>Dashboard responsivo</h2>
+  <p>A aplicação React foi desenhada para uma demonstração direta: primeiro comunica propósito e tokenomics; depois concentra saldo, supply, transferência e status. O painel administrativo só aparece quando <code>hasRole</code> confirma permissões on-chain.</p>
+  <div class="grid2" style="margin-top:6mm">
+    <div class="card"><h3>Experiência do usuário</h3><ul><li>Conexão MetaMask.</li><li>Troca ou adição da Sepolia.</li><li>Endereços compactados.</li><li>Quantidades formatadas com 18 decimais.</li><li>Link para transação confirmada.</li></ul></div>
+    <div class="card"><h3>Tratamento de erros</h3><ul><li>MetaMask ausente.</li><li>Solicitação já pendente.</li><li>Assinatura rejeitada.</li><li>ETH insuficiente para gas.</li><li>Falta de papel ou token pausado.</li></ul></div>
+  </div>
+  <h3>Configuração segura</h3>
+  <pre>VITE_CONTRACT_ADDRESS=0xe0b6a9d39C90C5DE7772Bf3c74753Faa487A10e8</pre>
+  <p>Após o deploy, a variável foi preenchida com o endereço real, o bundle foi reconstruído e as leituras e transações passaram a usar o contrato publicado.</p>
+  <div class="evidence-grid">
+    <figure><img src="evidencias/admin-supply.png" alt="Dashboard da conta administradora na Sepolia"><figcaption>Conta administradora: 999.999 UESPM e supply de 1.000.010 UESPM na Sepolia.</figcaption></figure>
+    <figure><img src="evidencias/saldo-aluno.png" alt="Dashboard da conta do aluno na Sepolia"><figcaption>Conta Aluno UESPI: saldo de 11 UESPM e supply de 1.000.010 UESPM na Sepolia.</figcaption></figure>
+  </div>
+  <div class="placeholder">[EVIDÊNCIA PENDENTE - PRINT TRANSFER] Inserir captura da transferência confirmada e seu hash.</div>
+</section>
+
+<section class="page" data-page="6 / 8">
+  <div class="topline"><span class="mark">UM</span><span>Testes executados</span></div>
+  <h2>Resultados locais reais</h2>
+  <div class="grid2">
+    <div class="metric"><span>Suíte Hardhat</span><strong>14 / 14</strong><span>testes aprovados</span></div>
+    <div class="metric"><span>Cobertura</span><strong>100%</strong><span>statements · branches · functions · lines</span></div>
+  </div>
+  <table class="small" style="margin-top:6mm">
+    <tr><th>Grupo</th><th>Cenários validados</th><th>Resultado</th></tr>
+    <tr><td>Implantação</td><td>Nome, símbolo, decimais, supply, saldo inicial e admin zero</td><td class="ok">Aprovado</td></tr>
+    <tr><td>Acesso</td><td>Papéis iniciais, mint/pause não autorizados, concessão e revogação</td><td class="ok">Aprovado</td></tr>
+    <tr><td>ERC-20</td><td>Transferência, evento, saldos e saldo insuficiente</td><td class="ok">Aprovado</td></tr>
+    <tr><td>Mint</td><td>Registro de recompensa, zero address, zero amount e teto</td><td class="ok">Aprovado</td></tr>
+    <tr><td>Burn</td><td>Queima pelo titular e redução de totalSupply</td><td class="ok">Aprovado</td></tr>
+    <tr><td>Pause</td><td>Bloqueio de transfer/mint/burn e retomada</td><td class="ok">Aprovado</td></tr>
+  </table>
+  <h3>Build do frontend</h3>
+  <p>O build Vite transformou 177 módulos. Após divisão do bundle, os chunks minificados ficaram em 240,77 kB (aplicação) e 261,34 kB (ethers.js), sem alerta de tamanho. O servidor de preview respondeu HTTP 200.</p>
+  <h3>Correção encontrada durante execução</h3>
+  <p>A primeira instalação revelou incompatibilidade entre Chai 5 e o matcher do Hardhat; foi fixada com Chai 4 compatível. O primeiro build encontrou restrição do sandbox no carregador esbuild; o carregador runner do Vite resolveu o problema sem ignorar verificações.</p>
+</section>
+
+<section class="page" data-page="7 / 8">
+  <div class="topline"><span class="mark">UM</span><span>Deploy, custos e evidências</span></div>
+  <h2>Sepolia publicada e verificada</h2>
+  <p>O contrato foi implantado após autorização expressa e seu código-fonte foi verificado publicamente no Etherscan. As leituras on-chain confirmaram nome, símbolo, supply, saldo inicial, papéis e estado não pausado.</p>
+  <div class="card"><strong>Contrato</strong><br><code style="word-break:break-all">0xe0b6a9d39C90C5DE7772Bf3c74753Faa487A10e8</code></div>
+  <div class="card" style="margin-top:3mm"><strong>Hash · bloco 12.169.999</strong><br><code style="word-break:break-all">0x9716c168aad414576bd09570efdb58e006a079ddb0be6e3e0e7b81d2018359d7</code></div>
+  <p style="margin-top:3mm"><strong>Etherscan:</strong> <span class="green">sepolia.etherscan.io/address/0xe0b6...A10e8#code</span></p>
+  <h3>Custos</h3>
+  <table>
+    <tr><th>Operação</th><th>Gas usado</th><th>Preço do gas</th><th>Custo</th></tr>
+    <tr><td>Deploy</td><td>7.450.016</td><td>1 gwei</td><td>0,007450016 SepoliaETH</td></tr>
+    <tr><td>Transferência</td><td>143.183</td><td>1,500000015 gwei</td><td>0,000214774502147745 SepoliaETH</td></tr>
+    <tr><td>Mint de 10 UESPM</td><td>159.737</td><td>1,500000014 gwei</td><td>0,000239605502236318 SepoliaETH</td></tr>
+    <tr><td>Pause / unpause</td><td>129.092 / 24.937</td><td>1,500000014 gwei</td><td>0,000231043502156406 SepoliaETH</td></tr>
+  </table>
+  <p>A transferência de 1 UESPM foi confirmada no bloco 12.170.133, hash <code>0x9b35a41d...f9d432</code>. O mint, pause e unpause foram confirmados nos blocos 12.170.854, 12.170.873 e 12.170.882. Durante a pausa, uma transferência foi recusada antes do envio. Custos calculados por <code>gasUsed × effectiveGasPrice</code>.</p>
+  <h3>Validação on-chain</h3>
+  <pre>name: UESPIMerito       symbol: UESPM
+totalSupply: 1.000.000  paused: false
+MINTER_ROLE: true       PAUSER_ROLE: true</pre>
+  <p class="muted">Estado após a demonstração: totalSupply 1.000.010 UESPM, aluno 11 UESPM e operações retomadas.</p>
+  <p class="muted">Usar somente carteira de teste dedicada. Nunca solicitar ou registrar frase-semente.</p>
+</section>
+
+<section class="page" data-page="8 / 8">
+  <div class="topline"><span class="mark">UM</span><span>Conclusão e rastreabilidade</span></div>
+  <h2>Conclusão</h2>
+  <p>O UESPIMérito entrega um ERC-20 original e compatível, com propósito acadêmico, supply limitado e três extensões: mint, burn e pause. O uso de OpenZeppelin reduz reinvenção de componentes críticos, enquanto os testes negativos demonstram limites e permissões.</p>
+  <p>O frontend oferece uma experiência moderna e responsiva para MetaMask e Sepolia, incluindo leitura de saldo, transferência, status e controles administrativos condicionados aos papéis. Compilação, testes, cobertura e build foram executados localmente.</p>
+  <h3>Síntese de atendimento</h3>
+  <table class="small">
+    <tr><th>Critério</th><th>Entrega</th><th>Estado</th></tr>
+    <tr><td>Smart contract</td><td>ERC-20, constructor, mapping, require e funções públicas</td><td class="ok">Concluído</td></tr>
+    <tr><td>Extras</td><td>Mint, burn e pause</td><td class="ok">Concluído</td></tr>
+    <tr><td>Frontend</td><td>MetaMask, Sepolia, saldo, transfer e administração</td><td class="ok">Concluído localmente</td></tr>
+    <tr><td>Testes</td><td>14 aprovados e cobertura integral</td><td class="ok">Concluído</td></tr>
+    <tr><td>Deploy real</td><td>Sepolia, recibo e código verificado</td><td class="ok">Concluído</td></tr>
+    <tr><td>Relatório e vídeo</td><td>PDF e roteiro de 4min40s</td><td>PDF concluído; gravação pendente</td></tr>
+  </table>
+  <h3>Próximas etapas manuais</h3>
+  <ol>
+    <li>Registrar as capturas visuais finais de saldo e transferência.</li>
+    <li>Publicar o repositório e gravar o vídeo.</li>
+  </ol>
+  <p class="muted">A matriz detalhada de 45 requisitos acompanha o código-fonte. Todos os marcadores pendentes devem ser substituídos apenas por evidência real.</p>
+</section>
+
+</body>
+</html>
